@@ -14,7 +14,7 @@ const SwordArtOnline = [
 const moiSlime = [
   {
     title: "Moi, quand je me réincarne en Slime",
-    image: "./image/moiSlim.jpg",
+    image: "./image/moiSlime.jpg",
     gender: ["Isekai", "Fantasy", "Adventure"],
     productor: ["8-Bit, Shinji Ishihara"],
     years: "2018 à aujourd'hui",
@@ -155,7 +155,7 @@ const spider = [
   },
 ];
 
-const collection = [
+const collections = [
   SwordArtOnline,
   moiSlime,
   logHorizon,
@@ -169,3 +169,62 @@ const collection = [
   assassin,
   spider,
 ];
+
+const main = document.querySelector("main");
+
+collections.forEach((collection) => {
+  let newSection = document.createElement("section");
+
+  let title = document.createElement("h2");
+  title.textContent = collection[0].title;
+
+  let image = document.createElement("img");
+  image.src = collection[0].image;
+  image.alt = collection[0].title;
+
+  let gender = document.createElement("p");
+  let genderText = document.createTextNode("Genre: ");
+  let genderSpan = document.createElement("span");
+  genderSpan.textContent = collection[0].gender.join(", ");
+  genderSpan.classList.add("div-title");
+
+  let producer = document.createElement("p");
+  let producerText = document.createTextNode("Producer: ");
+  let producerSpan = document.createElement("span");
+  producerSpan.textContent = "Producer: " + collection[0].productor.join(", ");
+  producerSpan.classList.add("div-title");
+
+  let years = document.createElement("p");
+  let yearsText = document.createTextNode("Years: ");
+  let yearsSpan = document.createElement("span");
+  yearsSpan.textContent = "Years: " + collection[0].years;
+  yearsSpan.classList.add("div-title");
+
+  let synopsis = document.createElement("p");
+  let synopsisText = document.createTextNode("Synopsis: ");
+  let synopsisSpan = document.createElement("span");
+  synopsisSpan.textContent = "Synopsis: " + collection[0].synopsis;
+  synopsisSpan.classList.add("div-title");
+
+  let link = document.createElement("a");
+  link.href = collection[0].lien;
+  link.textContent = "More Info";
+
+  newSection.appendChild(title);
+  newSection.appendChild(image);
+  newSection.appendChild(gender);
+  gender.appendChild(genderText);
+  gender.appendChild(genderSpan);
+  newSection.appendChild(producer);
+  producer.appendChild(producerText);
+  producer.appendChild(producerSpan);
+  newSection.appendChild(years);
+  years.appendChild(yearsText);
+  years.appendChild(yearsSpan);
+  newSection.appendChild(synopsis);
+  synopsis.appendChild(synopsisText);
+  synopsis.appendChild(synopsisSpan);
+  newSection.appendChild(link);
+
+  main.appendChild(newSection);
+});

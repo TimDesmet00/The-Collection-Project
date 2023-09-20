@@ -1,0 +1,29 @@
+main{
+    width: 100%;
+    min-width: 375px;
+    
+    section{
+        text-align: center;
+        padding: 30px 10%;
+        border: 2px solid black;
+        margin: 5%;
+
+        h2{
+            font-size: 20px;
+            font-weight: bold;
+            padding-bottom: 1em;
+        }
+        img{
+            width: 100%;
+        }
+        p{
+            margin: 1em;
+            font-weight: bold;
+            .div-title{
+                font-weight: 400;
+
+            }
+        }
+        // a{}
+    }
+}
