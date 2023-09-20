@@ -51,6 +51,7 @@ input {
   text-align: center;
   padding: 30px;
   font-size: 3em;
+  color: bisque;
 }
 
 main {
@@ -59,22 +60,65 @@ main {
 }
 main section {
   text-align: center;
-  padding: 30px 10%;
+  padding: 30px 5%;
   border: 2px solid black;
   margin: 5%;
+  background-color: rgb(190, 50, 218);
+}
+main section:hover {
+  box-shadow: 5px 5px 5px black;
+  transition: 2s;
 }
 main section h2 {
   font-size: 20px;
   font-weight: bold;
   padding-bottom: 1em;
+  color: darkred;
 }
 main section img {
   width: 100%;
 }
+main section img:hover {
+  width: 120%;
+  transform: translate(-25px, 0);
+  transition: 3s;
+}
 main section p {
   margin: 1em;
   font-weight: bold;
+  color: bisque;
 }
 main section p .div-title {
   font-weight: 400;
+  color: darkred;
+}
+main section a {
+  text-decoration: none;
+  border: 2px solid bisque;
+  border-radius: 10px;
+  padding: 8px;
+  background-color: bisque;
+  color: rgb(190, 50, 218);
+}
+main section a:hover {
+  background-color: darkred;
+  color: bisque;
+  transition: 2s;
+  box-shadow: 5px 5px 5px darkred;
+}
+
+@media only screen and (min-width: 612px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+body {
+  background-color: darkred;
 }/*# sourceMappingURL=style.css.map */
