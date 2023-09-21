@@ -40,7 +40,7 @@ const logHorizon = [
 const kumaBear = [
   {
     title: "Kuma Kuma Kuma Bear",
-    image: "./image/kumaBear.jpg",
+    image: "./image/kumaBear2.jpg",
     gender: ["Isekai", "Fantasy", "Adventure"],
     productor: ["EMT Squared, Yuu Nobuta et Hisashii Ishii"],
     years: "2020 à aujourd'hui",
