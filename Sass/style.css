@@ -101,15 +101,21 @@ main section a {
   padding: 8px;
   background-color: bisque;
   color: rgb(190, 50, 218);
+  margin: 0 2%;
+  position: relative;
+  bottom: auto;
   position: absolute;
   bottom: 10px;
-  left: 40%;
+  left: 20%;
 }
 main section a:hover {
   background-color: rgb(80, 0, 0);
   color: bisque;
   transition: 2s;
   box-shadow: 5px 5px 5px rgb(80, 0, 0);
+}
+main section .del {
+  left: 50%;
 }
 
 @media only screen and (min-width: 612px) {

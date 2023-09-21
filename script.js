@@ -40,7 +40,7 @@ const logHorizon = [
 const kumaBear = [
   {
     title: "Kuma Kuma Kuma Bear",
-    image: "./image/KumaBear.jpg",
+    image: "./image/kumaBear.jpg",
     gender: ["Isekai", "Fantasy", "Adventure"],
     productor: ["EMT Squared, Yuu Nobuta et Hisashii Ishii"],
     years: "2020 à aujourd'hui",
@@ -211,6 +211,16 @@ collections.forEach((collection) => {
     link.href = serie.lien;
     link.textContent = "More Info";
 
+    let deleteLink = document.createElement("a");
+    deleteLink.textContent = "Supprimer";
+    deleteLink.href = "#";
+    deleteLink.classList.add("del");
+
+    deleteLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      newSection.remove();
+    });
+
     newSection.appendChild(title);
     newSection.appendChild(image);
     newSection.appendChild(gender);
@@ -226,6 +236,7 @@ collections.forEach((collection) => {
     synopsis.appendChild(synopsisText);
     synopsis.appendChild(synopsisSpan);
     newSection.appendChild(link);
+    newSection.appendChild(deleteLink);
 
     main.appendChild(newSection);
   });
