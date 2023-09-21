@@ -4,10 +4,11 @@ main{
     
     section{
         text-align: center;
-        padding: 30px 5%;
+        padding: 30px 5% 40px 5%;
         border: 2px solid black;
         margin: 5%;
-        background-color: $background-color-section;
+        background: linear-gradient(0.25turn, $background-color-section, $background-color-section-linear) ;
+        position: relative;
         &:hover{
             box-shadow: 5px 5px 5px black;
             transition: 2s;
@@ -18,12 +19,13 @@ main{
             font-weight: bold;
             padding-bottom: 1em;
             color: $color-h2;
+            margin-top: auto;
         }
         img{
             width: 100%;
             &:hover{
                 width: 120%;
-                transform: translate(-25px, 0);
+                transform: translate(-8%, 0);
                 transition: 3s;
                 
             }
@@ -46,8 +48,9 @@ main{
             padding: 8px;
             background-color: $color-h1;
             color: $background-color-section;
-            // display: flex;
-            // align-items: flex-end;
+            position: absolute;
+            bottom: 10px;
+            left: 40%;
             &:hover{
                 background-color: $background-color-body;
                 color: $color-h1;

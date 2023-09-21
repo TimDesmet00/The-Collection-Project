@@ -6,6 +6,7 @@
 @import 'main.scss';
 
 body{
-    background-color: $background-color-body;
+    background:linear-gradient(0.25turn, $background-color-body, $background-color-body-linear, $background-color-body) ;
+    
 }
 

@@ -173,58 +173,60 @@ const collections = [
 const main = document.querySelector("main");
 
 collections.forEach((collection) => {
-  let newSection = document.createElement("section");
+  collection.forEach((serie) => {
+    let newSection = document.createElement("section");
 
-  let title = document.createElement("h2");
-  title.textContent = collection[0].title;
+    let title = document.createElement("h2");
+    title.textContent = serie.title;
 
-  let image = document.createElement("img");
-  image.src = collection[0].image;
-  image.alt = collection[0].title;
+    let image = document.createElement("img");
+    image.src = serie.image;
+    image.alt = serie.title;
 
-  let gender = document.createElement("p");
-  let genderText = document.createTextNode("Genre: ");
-  let genderSpan = document.createElement("span");
-  genderSpan.textContent = collection[0].gender.join(", ");
-  genderSpan.classList.add("div-title");
+    let gender = document.createElement("p");
+    let genderText = document.createTextNode("Genre: ");
+    let genderSpan = document.createElement("span");
+    genderSpan.textContent = serie.gender.join(", ");
+    genderSpan.classList.add("div-title");
 
-  let producer = document.createElement("p");
-  let producerText = document.createTextNode("Producer: ");
-  let producerSpan = document.createElement("span");
-  producerSpan.textContent = "Producer: " + collection[0].productor.join(", ");
-  producerSpan.classList.add("div-title");
+    let producer = document.createElement("p");
+    let producerText = document.createTextNode("Producer: ");
+    let producerSpan = document.createElement("span");
+    producerSpan.textContent = serie.productor.join(", ");
+    producerSpan.classList.add("div-title");
 
-  let years = document.createElement("p");
-  let yearsText = document.createTextNode("Years: ");
-  let yearsSpan = document.createElement("span");
-  yearsSpan.textContent = "Years: " + collection[0].years;
-  yearsSpan.classList.add("div-title");
+    let years = document.createElement("p");
+    let yearsText = document.createTextNode("Years: ");
+    let yearsSpan = document.createElement("span");
+    yearsSpan.textContent = serie.years;
+    yearsSpan.classList.add("div-title");
 
-  let synopsis = document.createElement("p");
-  let synopsisText = document.createTextNode("Synopsis: ");
-  let synopsisSpan = document.createElement("span");
-  synopsisSpan.textContent = "Synopsis: " + collection[0].synopsis;
-  synopsisSpan.classList.add("div-title");
+    let synopsis = document.createElement("p");
+    let synopsisText = document.createTextNode("Synopsis: ");
+    let synopsisSpan = document.createElement("span");
+    synopsisSpan.textContent = serie.synopsis;
+    synopsisSpan.classList.add("div-title");
 
-  let link = document.createElement("a");
-  link.href = collection[0].lien;
-  link.textContent = "More Info";
+    let link = document.createElement("a");
+    link.href = serie.lien;
+    link.textContent = "More Info";
 
-  newSection.appendChild(title);
-  newSection.appendChild(image);
-  newSection.appendChild(gender);
-  gender.appendChild(genderText);
-  gender.appendChild(genderSpan);
-  newSection.appendChild(producer);
-  producer.appendChild(producerText);
-  producer.appendChild(producerSpan);
-  newSection.appendChild(years);
-  years.appendChild(yearsText);
-  years.appendChild(yearsSpan);
-  newSection.appendChild(synopsis);
-  synopsis.appendChild(synopsisText);
-  synopsis.appendChild(synopsisSpan);
-  newSection.appendChild(link);
+    newSection.appendChild(title);
+    newSection.appendChild(image);
+    newSection.appendChild(gender);
+    gender.appendChild(genderText);
+    gender.appendChild(genderSpan);
+    newSection.appendChild(producer);
+    producer.appendChild(producerText);
+    producer.appendChild(producerSpan);
+    newSection.appendChild(years);
+    years.appendChild(yearsText);
+    years.appendChild(yearsSpan);
+    newSection.appendChild(synopsis);
+    synopsis.appendChild(synopsisText);
+    synopsis.appendChild(synopsisSpan);
+    newSection.appendChild(link);
 
-  main.appendChild(newSection);
+    main.appendChild(newSection);
+  });
 });

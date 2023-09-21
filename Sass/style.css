@@ -60,10 +60,11 @@ main {
 }
 main section {
   text-align: center;
-  padding: 30px 5%;
+  padding: 30px 5% 40px 5%;
   border: 2px solid black;
   margin: 5%;
-  background-color: rgb(190, 50, 218);
+  background: linear-gradient(0.25turn, rgb(190, 50, 218), rgb(196, 94, 216));
+  position: relative;
 }
 main section:hover {
   box-shadow: 5px 5px 5px black;
@@ -73,14 +74,15 @@ main section h2 {
   font-size: 20px;
   font-weight: bold;
   padding-bottom: 1em;
-  color: darkred;
+  color: rgb(80, 0, 0);
+  margin-top: auto;
 }
 main section img {
   width: 100%;
 }
 main section img:hover {
   width: 120%;
-  transform: translate(-25px, 0);
+  transform: translate(-8%, 0);
   transition: 3s;
 }
 main section p {
@@ -90,7 +92,7 @@ main section p {
 }
 main section p .div-title {
   font-weight: 400;
-  color: darkred;
+  color: rgb(80, 0, 0);
 }
 main section a {
   text-decoration: none;
@@ -99,12 +101,15 @@ main section a {
   padding: 8px;
   background-color: bisque;
   color: rgb(190, 50, 218);
+  position: absolute;
+  bottom: 10px;
+  left: 40%;
 }
 main section a:hover {
-  background-color: darkred;
+  background-color: rgb(80, 0, 0);
   color: bisque;
   transition: 2s;
-  box-shadow: 5px 5px 5px darkred;
+  box-shadow: 5px 5px 5px rgb(80, 0, 0);
 }
 
 @media only screen and (min-width: 612px) {
@@ -120,5 +125,5 @@ main section a:hover {
   }
 }
 body {
-  background-color: darkred;
+  background: linear-gradient(0.25turn, rgb(80, 0, 0), darkred, rgb(80, 0, 0));
 }/*# sourceMappingURL=style.css.map */
