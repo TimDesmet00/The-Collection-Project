@@ -170,6 +170,29 @@ const collections = [
   spider,
 ];
 
+let sortAlphabetically = (collection) => {
+  collection.sort((a, b) => {
+    return a.title.localeCompare(b.title);
+  });
+};
+
+// Fonction de tri par ordre anti-alphabétique
+let sortReverseAlphabetically = (collection) => {
+  collection.sort((a, b) => {
+    return b.title.localeCompare(a.title);
+  });
+};
+
+let sortByYear = (collection) => {
+  collection.forEach((series) => {
+    series.sort((a, b) => {
+      const yearA = parseInt(a.years.split("à")[0].trim());
+      const yearB = parseInt(b.years.split("à")[0].trim());
+      return yearA - yearB;
+    });
+  });
+};
+
 let currentSortOption = "";
 
 const main = document.querySelector("main");
@@ -295,18 +318,21 @@ defaultSort.addEventListener("click", (e) => {
 yearsOrder.addEventListener("click", (e) => {
   e.preventDefault();
   currentSortOption = "Years";
+  sortByYear(collections);
   updateUI();
 });
 
 alphabetical.addEventListener("click", (e) => {
   e.preventDefault();
   currentSortOption = "alphabetical";
+  sortAlphabetically(collections);
   updateUI();
 });
 
 reverseAlphabetical.addEventListener("click", (e) => {
   e.preventDefault();
   currentSortOption = "reverseAlphabetical";
+  sortReverseAlphabetically(collections);
   updateUI();
 });
 
