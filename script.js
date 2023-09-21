@@ -171,15 +171,19 @@ const collections = [
 ];
 
 let sortAlphabetically = (collection) => {
-  collection.sort((a, b) => {
-    return a.title.localeCompare(b.title);
+  collection.forEach((series) => {
+    series.sort((a, b) => {
+      return a.title.localeCompare(b.title);
+    });
   });
 };
 
 // Fonction de tri par ordre anti-alphabétique
 let sortReverseAlphabetically = (collection) => {
-  collection.sort((a, b) => {
-    return b.title.localeCompare(a.title);
+  collection.forEach((series) => {
+    series.sort((a, b) => {
+      return b.title.localeCompare(a.title);
+    });
   });
 };
 
