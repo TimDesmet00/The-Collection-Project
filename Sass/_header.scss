@@ -1,7 +1,31 @@
 .title-collection {
-    width: 100%;
-    text-align: center;
-    padding: 30px;
-    font-size: 3em;
-    color: $color-h1;
+    h1{
+        width: 100%;
+        text-align: center;
+        padding: 30px;
+        font-size: 3em;
+        color: $color-h1;
+    }
+    .tri{
+        display: flex;
+        justify-content: space-evenly;
+        a{            
+            text-decoration: none;
+            width: 20%;
+            text-align: center;
+            overflow: hidden;
+            border: 2px solid $color-h1;
+            border-radius: 10px;
+            padding: 8px;
+            background-color: $color-h1;
+            color: $background-color-section;
+            &:hover{
+                background-color: $background-color-section;
+                color: $color-h1;
+                transition: 2s;
+                box-shadow: 5px 5px 5px $shadow-color;
+            }
+        }
+    }
+    
 }

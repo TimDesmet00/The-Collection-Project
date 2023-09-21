@@ -170,74 +170,151 @@ const collections = [
   spider,
 ];
 
+let currentSortOption = "";
+
 const main = document.querySelector("main");
 
-collections.forEach((collection) => {
-  collection.forEach((serie) => {
-    let newSection = document.createElement("section");
+let updateUI = () => {
+  while (main.firstChild) {
+    main.removeChild(main.firstChild);
+  }
 
-    let title = document.createElement("h2");
-    title.textContent = serie.title;
-
-    let image = document.createElement("img");
-    image.src = serie.image;
-    image.alt = serie.title;
-
-    let gender = document.createElement("p");
-    let genderText = document.createTextNode("Genre: ");
-    let genderSpan = document.createElement("span");
-    genderSpan.textContent = serie.gender.join(", ");
-    genderSpan.classList.add("div-title");
-
-    let producer = document.createElement("p");
-    let producerText = document.createTextNode("Producer: ");
-    let producerSpan = document.createElement("span");
-    producerSpan.textContent = serie.productor.join(", ");
-    producerSpan.classList.add("div-title");
-
-    let years = document.createElement("p");
-    let yearsText = document.createTextNode("Years: ");
-    let yearsSpan = document.createElement("span");
-    yearsSpan.textContent = serie.years;
-    yearsSpan.classList.add("div-title");
-
-    let synopsis = document.createElement("p");
-    let synopsisText = document.createTextNode("Synopsis: ");
-    let synopsisSpan = document.createElement("span");
-    synopsisSpan.textContent = serie.synopsis;
-    synopsisSpan.classList.add("div-title");
-
-    let link = document.createElement("a");
-    link.href = serie.lien;
-    link.textContent = "More Info";
-
-    let deleteLink = document.createElement("a");
-    deleteLink.textContent = "Supprimer";
-    deleteLink.href = "#";
-    deleteLink.classList.add("del");
-
-    deleteLink.addEventListener("click", (e) => {
-      e.preventDefault();
-      newSection.remove();
+  if (currentSortOption === "Years") {
+    collections.forEach((collection) => {
+      collection.sort((a, b) => {
+        const yearA = parseInt(a.years.split(" ")[0]);
+        const yearB = parseInt(b.years.split(" ")[0]);
+        return yearA - yearB;
+      });
     });
+  }
 
-    newSection.appendChild(title);
-    newSection.appendChild(image);
-    newSection.appendChild(gender);
-    gender.appendChild(genderText);
-    gender.appendChild(genderSpan);
-    newSection.appendChild(producer);
-    producer.appendChild(producerText);
-    producer.appendChild(producerSpan);
-    newSection.appendChild(years);
-    years.appendChild(yearsText);
-    years.appendChild(yearsSpan);
-    newSection.appendChild(synopsis);
-    synopsis.appendChild(synopsisText);
-    synopsis.appendChild(synopsisSpan);
-    newSection.appendChild(link);
-    newSection.appendChild(deleteLink);
+  collections.forEach((collection) => {
+    collection.forEach((serie) => {
+      let newSection = document.createElement("section");
 
-    main.appendChild(newSection);
+      let title = document.createElement("h2");
+      title.textContent = serie.title;
+
+      let image = document.createElement("img");
+      image.src = serie.image;
+      image.alt = serie.title;
+
+      let gender = document.createElement("p");
+      let genderText = document.createTextNode("Genre: ");
+      let genderSpan = document.createElement("span");
+      genderSpan.textContent = serie.gender.join(", ");
+      genderSpan.classList.add("div-title");
+
+      let producer = document.createElement("p");
+      let producerText = document.createTextNode("Producer: ");
+      let producerSpan = document.createElement("span");
+      producerSpan.textContent = serie.productor.join(", ");
+      producerSpan.classList.add("div-title");
+
+      let years = document.createElement("p");
+      let yearsText = document.createTextNode("Years: ");
+      let yearsSpan = document.createElement("span");
+      yearsSpan.textContent = serie.years;
+      yearsSpan.classList.add("div-title");
+
+      let synopsis = document.createElement("p");
+      let synopsisText = document.createTextNode("Synopsis: ");
+      let synopsisSpan = document.createElement("span");
+      synopsisSpan.textContent = serie.synopsis;
+      synopsisSpan.classList.add("div-title");
+
+      let link = document.createElement("a");
+      link.href = serie.lien;
+      link.textContent = "More Info";
+
+      let deleteLink = document.createElement("a");
+      deleteLink.textContent = "Supprimer";
+      deleteLink.href = "#";
+      deleteLink.classList.add("del");
+
+      deleteLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        newSection.remove();
+      });
+
+      newSection.appendChild(title);
+      newSection.appendChild(image);
+      newSection.appendChild(gender);
+      gender.appendChild(genderText);
+      gender.appendChild(genderSpan);
+      newSection.appendChild(producer);
+      producer.appendChild(producerText);
+      producer.appendChild(producerSpan);
+      newSection.appendChild(years);
+      years.appendChild(yearsText);
+      years.appendChild(yearsSpan);
+      newSection.appendChild(synopsis);
+      synopsis.appendChild(synopsisText);
+      synopsis.appendChild(synopsisSpan);
+      newSection.appendChild(link);
+      newSection.appendChild(deleteLink);
+
+      main.appendChild(newSection);
+    });
   });
+};
+
+const header = document.querySelector("header");
+const h1 = header.querySelector("h1");
+
+let newNavBar = document.createElement("nav");
+newNavBar.classList.add("tri");
+
+let defaultSort = document.createElement("a");
+defaultSort.textContent = "defaut";
+defaultSort.href = "#";
+defaultSort.id = "defaultSort";
+
+let yearsOrder = document.createElement("a");
+yearsOrder.textContent = "Années";
+yearsOrder.href = "#";
+yearsOrder.id = "yearsOrder";
+
+let alphabetical = document.createElement("a");
+alphabetical.textContent = "Alphabétique";
+alphabetical.href = "#";
+alphabetical.id = "alphabetical";
+
+let reverseAlphabetical = document.createElement("a");
+reverseAlphabetical.textContent = "Anti-alphabétique";
+reverseAlphabetical.href = "#";
+reverseAlphabetical.id = "reverseAlphabetical";
+
+defaultSort.addEventListener("click", (e) => {
+  e.preventDefault();
+  currentSortOption = "default";
+  updateUI();
 });
+
+yearsOrder.addEventListener("click", (e) => {
+  e.preventDefault();
+  currentSortOption = "Years";
+  updateUI();
+});
+
+alphabetical.addEventListener("click", (e) => {
+  e.preventDefault();
+  currentSortOption = "alphabetical";
+  updateUI();
+});
+
+reverseAlphabetical.addEventListener("click", (e) => {
+  e.preventDefault();
+  currentSortOption = "reverseAlphabetical";
+  updateUI();
+});
+
+newNavBar.appendChild(defaultSort);
+newNavBar.appendChild(yearsOrder);
+newNavBar.appendChild(alphabetical);
+newNavBar.appendChild(reverseAlphabetical);
+
+header.appendChild(newNavBar);
+
+updateUI();
