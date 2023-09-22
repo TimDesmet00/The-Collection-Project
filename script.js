@@ -1,3 +1,5 @@
+// creation des objets.
+
 const SwordArtOnline = [
   {
     title: "Sword Art Online",
@@ -155,6 +157,8 @@ const spider = [
   },
 ];
 
+// strockage des objets dans un tableau(array).
+
 const collections = [
   SwordArtOnline,
   moiSlime,
@@ -170,6 +174,8 @@ const collections = [
   spider,
 ];
 
+// tentative de fonction pour faire le tri alphabétique
+
 let sortAlphabetically = (collection) => {
   collection.forEach((series) => {
     series.sort((a, b) => {
@@ -178,7 +184,8 @@ let sortAlphabetically = (collection) => {
   });
 };
 
-// Fonction de tri par ordre anti-alphabétique
+// tentative de Fonction pour faire le tri anti-alphabétique
+
 let sortReverseAlphabetically = (collection) => {
   collection.forEach((series) => {
     series.sort((a, b) => {
@@ -186,6 +193,8 @@ let sortReverseAlphabetically = (collection) => {
     });
   });
 };
+
+// tentative pour faire le tri par année de production
 
 let sortByYear = (collection) => {
   collection.forEach((series) => {
@@ -198,6 +207,8 @@ let sortByYear = (collection) => {
 };
 
 let currentSortOption = "";
+
+// const pour ciblé le main
 
 const main = document.querySelector("main");
 
@@ -216,12 +227,14 @@ let updateUI = () => {
     });
   }
 
+  // création de mon document html avec javascript en important les valeur de mes objets.
+
   collections.forEach((collection) => {
     collection.forEach((serie) => {
-      let newSection = document.createElement("section");
+      let newSection = document.createElement("section"); //création d'une nouvelle balise section
 
-      let title = document.createElement("h2");
-      title.textContent = serie.title;
+      let title = document.createElement("h2"); //création d'une nouvelle balise titre h2
+      title.textContent = serie.title; // ajout du contenu de title de serie dans le h2
 
       let image = document.createElement("img");
       image.src = serie.image;
@@ -231,25 +244,25 @@ let updateUI = () => {
       let genderText = document.createTextNode("Genre: ");
       let genderSpan = document.createElement("span");
       genderSpan.textContent = serie.gender.join(", ");
-      genderSpan.classList.add("div-title");
+      genderSpan.classList.add("div-title"); //création de class
 
       let producer = document.createElement("p");
       let producerText = document.createTextNode("Producer: ");
       let producerSpan = document.createElement("span");
       producerSpan.textContent = serie.productor.join(", ");
-      producerSpan.classList.add("div-title");
+      producerSpan.classList.add("div-title"); //création de class
 
       let years = document.createElement("p");
       let yearsText = document.createTextNode("Years: ");
       let yearsSpan = document.createElement("span");
       yearsSpan.textContent = serie.years;
-      yearsSpan.classList.add("div-title");
+      yearsSpan.classList.add("div-title"); //création de class
 
       let synopsis = document.createElement("p");
       let synopsisText = document.createTextNode("Synopsis: ");
       let synopsisSpan = document.createElement("span");
       synopsisSpan.textContent = serie.synopsis;
-      synopsisSpan.classList.add("div-title");
+      synopsisSpan.classList.add("div-title"); //création de class
 
       let link = document.createElement("a");
       link.href = serie.lien;
@@ -258,13 +271,16 @@ let updateUI = () => {
       let deleteLink = document.createElement("a");
       deleteLink.textContent = "Supprimer";
       deleteLink.href = "#";
-      deleteLink.classList.add("del");
+      deleteLink.classList.add("del"); //création de class
 
       deleteLink.addEventListener("click", (e) => {
+        //ajout d'un evenment click sur le lien a delete
         e.preventDefault();
         newSection.remove();
       });
 
+      // mise en place dans le document HTML
+      // pour les nouvelle balise entre elle
       newSection.appendChild(title);
       newSection.appendChild(image);
       newSection.appendChild(gender);
@@ -282,21 +298,25 @@ let updateUI = () => {
       newSection.appendChild(link);
       newSection.appendChild(deleteLink);
 
+      // pour la balise principale dans le main du document HTML
+
       main.appendChild(newSection);
     });
   });
 };
 
-const header = document.querySelector("header");
-const h1 = header.querySelector("h1");
+const header = document.querySelector("header"); //ciblage du header dans le code HTML
+const h1 = header.querySelector("h1"); //ciblage du h1 dans le code HTML
 
-let newNavBar = document.createElement("nav");
-newNavBar.classList.add("tri");
+// creation de la nav bar avec les lien de tri
 
-let defaultSort = document.createElement("a");
-defaultSort.textContent = "defaut";
-defaultSort.href = "#";
-defaultSort.id = "defaultSort";
+let newNavBar = document.createElement("nav"); // creation d'une balise nav
+newNavBar.classList.add("tri"); //ajout d'une class a la nav barre
+
+let defaultSort = document.createElement("a"); //creation d'un lien de balise a
+defaultSort.textContent = "defaut"; //ajout de test dans la balise
+defaultSort.href = "#"; // ajout de # dans la proprieté href
+defaultSort.id = "defaultSort"; // ajout d'un id à la balise a
 
 let yearsOrder = document.createElement("a");
 yearsOrder.textContent = "Années";
@@ -312,6 +332,8 @@ let reverseAlphabetical = document.createElement("a");
 reverseAlphabetical.textContent = "Anti-alphabétique";
 reverseAlphabetical.href = "#";
 reverseAlphabetical.id = "reverseAlphabetical";
+
+// creation des evenements lié a la nav bar qui sont des clic event
 
 defaultSort.addEventListener("click", (e) => {
   e.preventDefault();
@@ -340,11 +362,17 @@ reverseAlphabetical.addEventListener("click", (e) => {
   updateUI();
 });
 
+// ajout de la nav bar dans le HTML
+//ajout des element de la nav bar dans la nav bar
 newNavBar.appendChild(defaultSort);
 newNavBar.appendChild(yearsOrder);
 newNavBar.appendChild(alphabetical);
 newNavBar.appendChild(reverseAlphabetical);
 
+// ajout de la nav bar en html
+
 header.appendChild(newNavBar);
+
+// appel de la fonction updateUI
 
 updateUI();
